@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="main-container">
+    <h1 class="title">COMP 2132 Final Project: Hangman</h1>
+    <div id="hangman-div">
+        <img src="../static/img/hangmanimgs/hangman_1.png" alt="Hangman Image" id="hangman-img">
+    </div>
+    <h2 id="hangman-hint"></h2>
+    <div id="hangman-letters"></div>
+    <form action="/project/submit" method="POST" id="project-form">
+        <label for="letter-choice">Choose a letter: </label>
+        <br>
+        <input type="text" id="letter-choice" name="letter-choice">
+        <br>
+        <button id="letter-submit" type="submit">Submit your Guess</button>
+    </form>
+    <div id="notice" class="notice">
+        <p id="notice-text"></p>
+        <div id="notice-buttons">
+            <button id="notice-close" type="button">Close</button>
+            <button id="notice-restart" type="button" hidden>Restart Game</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
