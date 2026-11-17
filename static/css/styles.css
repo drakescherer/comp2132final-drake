@@ -1,4 +1,52 @@
-@import "reset.css";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 @font-face {
   font-family: "Nova";
   src: url("../fonts/nova/synnova-normal-webfont.woff2") format("woff2"), url("../fonts/nova/synnova-normal-webfont.woff") format("woff");
@@ -27,7 +75,8 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
+  text-align: center;
 }
 
 h2 {
@@ -157,6 +206,7 @@ a:hover, a:active {
   padding-right: 20px;
   background-color: black;
   min-height: calc(100vh - 130px);
+  position: relative;
 }
 
 #hangman-div {
@@ -195,12 +245,6 @@ a:hover, a:active {
   margin-bottom: 25px;
 }
 
-.empty-letter {
-  margin-left: 10px;
-  font-size: 2rem;
-  font-family: "Nova", serif;
-}
-
 #project-form {
   padding-bottom: 20px;
 }
@@ -222,6 +266,7 @@ a:hover, a:active {
 
 #letter-submit {
   font-size: 1.5rem;
+  font-family: "Quicksand", serif;
   padding: 15px;
   border: 2px solid #2ecfff;
   border-radius: 10px;
@@ -229,17 +274,20 @@ a:hover, a:active {
 
 #notice-buttons button {
   font-size: 1.3rem;
+  font-family: "Quicksand", serif;
   padding: 10px;
   border: 2px solid #2ecfff;
   border-radius: 10px;
 }
 
 #notice {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px 35px;
+  width: 80%;
+  box-sizing: border-box;
+  padding: 20px 30px;
   background: #0a0a0a;
   color: white;
   border: 2px solid #ff007f;
@@ -269,6 +317,9 @@ a:hover, a:active {
   display: block;
   animation: notice-in 0.3s ease-out;
 }
+.notice p {
+  text-align: center;
+}
 
 #notice-buttons {
   display: flex;
@@ -292,17 +343,29 @@ tr td:last-child {
   text-align: center;
 }
 
+.empty-letter {
+  margin-left: 10px;
+  font-size: 1.2rem;
+  font-family: "Nova", serif;
+}
+
 @media (min-width: 500px) {
   .header-content {
     background-size: 100% 200%;
   }
 }
 @media (min-width: 700px) {
+  h1 {
+    font-size: 2.5rem;
+  }
   h2 {
     font-size: 2.2rem;
   }
   p, ul, ol {
     font-size: 1.4rem;
+  }
+  .empty-letter {
+    font-size: 1.6rem;
   }
 }
 @media (min-width: 1000px) {

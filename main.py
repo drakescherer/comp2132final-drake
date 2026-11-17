@@ -9,18 +9,10 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 load_dotenv()
 app = Flask(__name__)
-# limiter = Limiter(
-#     get_remote_address,
-#     app=app,
-#     default_limits=["1000 per day", "200 per hour"],
-#     storage_uri=f"redis://:{os.getenv('REDIS_PASS')}@192.168.1.198:6379/0",
-# )
-# limiter.init_app(app)
 maintenance_mode = False
 
 @app.route('/')
 def home():
-    # Changed this as the menu has not been setup yet.
     return render_template('project.html')
 
 @app.route('/assets/hangman_words.json')
@@ -33,27 +25,13 @@ def log_request_info():
     current_time = datetime.now()
     current_time_formatted = current_time.strftime('%m/%d %H:%M:%S')
     logging.info(f"{current_time_formatted} - {request.headers.get('X-Real-IP')} - {request.method} {request.path}")
-    # if request.headers.get('X-Real-IP') != '66.183.230.150':
-    #     print(f"rejecting outside IP")
-    #     return "", 404
     if maintenance_mode:
         if request.endpoint not in ['maintenance', 'static']:
             return redirect(url_for('maintenance'))
 
-# @app.route('/robots.txt')
-# def robots_txt():
-#     robots_content = """
-#                         User-agent: *
-#                         Allow: /
-#                      """
-#
-#     return Response(robots_content, mimetype='text/plain')
-
 @app.errorhandler(404)
 def page_not_found(e):
     return "", 404
-    # flash("Page not found, Code: 404.", 'error')
-    # return redirect(url_for("home"))
 
 @app.errorhandler(413)
 def request_entity_too_large(e):

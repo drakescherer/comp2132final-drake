@@ -1,4 +1,4 @@
-@import "reset.css"
+@use "css-reset"
 
 $theme-blue: #2ecfff
 $theme-blue-dark: #10657a
@@ -33,7 +33,8 @@ h1, h2, h3
   font-family: "Nova", serif
 
 h1
-  font-size: 3rem
+  font-size: 2rem
+  text-align: center
 
 h2
   font-size: 1.2rem
@@ -148,6 +149,7 @@ a
   padding-right: 20px
   background-color: black
   min-height: calc(100vh - 130px)
+  position: relative
 
 #hangman-div
   margin-top: 25px
@@ -180,11 +182,6 @@ a
   margin-top: 25px
   margin-bottom: 25px
 
-.empty-letter
-  margin-left: 10px
-  font-size: 2rem
-  font-family: "Nova", serif
-
 #project-form
   padding-bottom: 20px
   > *
@@ -202,6 +199,7 @@ a
 
 #letter-submit
   font-size: 1.5rem
+  font-family: "Quicksand", serif
   padding: 15px
   border: 2px solid $theme-blue
   border-radius: 10px
@@ -209,16 +207,19 @@ a
 #notice-buttons
   button
     font-size: 1.3rem
+    font-family: "Quicksand", serif
     padding: 10px
     border: 2px solid $theme-blue
     border-radius: 10px
 
 #notice
-  position: fixed
+  position: absolute
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
-  padding: 20px 35px
+  width: 80%
+  box-sizing: border-box
+  padding: 20px 30px
   background: #0a0a0a
   color: white
   border: 2px solid $theme-pink
@@ -246,6 +247,9 @@ a
     display: block
     animation: notice-in 0.3s ease-out
 
+  p
+    text-align: center
+
 #notice-buttons
   display: flex
   justify-content: center
@@ -269,16 +273,27 @@ tr
     &:last-child
       text-align: center
 
+.empty-letter
+  margin-left: 10px
+  font-size: 1.2rem
+  font-family: "Nova", serif
+
 @media (min-width: 500px)
   .header-content
     background-size: 100% 200%
 
 @media (min-width: 700px)
+  h1
+   font-size: 2.5rem
+
   h2
     font-size: 2.2rem
 
   p, ul, ol
     font-size: 1.4rem
+
+  .empty-letter
+    font-size: 1.6rem
 
 @media (min-width: 1000px)
   .main-container

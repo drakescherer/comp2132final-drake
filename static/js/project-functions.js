@@ -9,6 +9,7 @@ async function determineChoice() {
         hint: hint
     };
 }
+
 async function addData (wordHTMLElement, hintHTMLElement) {
     const choice = await determineChoice();
     const wordBlanksLen = choice.word.length;
@@ -34,12 +35,14 @@ function showNotice(noticeString, restartGame = false) {
 function closeNotice() {
     notice.classList.remove("show");
 }
+
 function shakeHangman() {
     const hangmanDiv = document.getElementById("hangman-div");
     hangmanDiv.classList.remove("shake");
     void hangmanDiv.offsetWidth;
     hangmanDiv.classList.add("shake");
 }
+
 async function initializeGame() {
     newWord = await addData(wordHTMLElement, hintHTMLElement);
     finalWord = newWord.toLowerCase();

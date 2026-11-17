@@ -4,15 +4,19 @@
     <title>Err0rdev | Engineering, Projects & YouTube</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
-    <link rel="stylesheet" href="../static/css/styles.css" media="all">
-    <link rel="icon" type="image/png" href="../static/img/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="shortcut icon" href="../static/img/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/img/favicon/apple-touch-icon.png" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png"
+      href="{{ url_for('static', filename='img/favicon/favicon-32x32.png') }}"
+      sizes="32x32">
+    <link rel="shortcut icon"
+      href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180"
+      href="{{ url_for('static', filename='img/favicon/apple-touch-icon.png') }}">
     <meta name="color-scheme" content="dark">
     <script src="https://kit.fontawesome.com/c3a7a182b6.js" crossorigin="anonymous"></script>
-    <script src="../static/js/project-objects.js" defer></script>
-    <script src="../static/js/project-functions.js" defer></script>
-    <script src="../static/js/project.js" defer></script>
+    <script src="{{ url_for('static', filename='js/project-objects.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/project-functions.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/project.js') }}" defer></script>
 </head>
 <body>
 <header class="header-content">

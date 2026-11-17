@@ -22,7 +22,7 @@ submitButton.addEventListener('click', (e) => {
         showNotice("Please enter a character.");
     }
     else if (guesses.includes(currentInput)) {
-        showNotice(`You have already chosen this letter: ${currentInput}`);
+        showNotice(`You have already chosen the letter: ${currentInput}`);
     }
     else {
         guesses.push(currentInput);
