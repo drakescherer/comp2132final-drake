@@ -13,18 +13,17 @@ let guesses = [];
 
 submitButton.addEventListener('click', (e) => {
     e.preventDefault();
-    currentInput = inputField.value.toLowerCase();
+    let currentInput = inputField.value.toLowerCase();
     inputField.value = "";
+    let win;
+    let gameOver;
     if (!/^[a-z]$/.test(currentInput)) {
         showNotice("Please enter a single alphabetic character.");
-    }
-    else if (currentInput.length < 1) {
+    } else if (currentInput.length < 1) {
         showNotice("Please enter a character.");
-    }
-    else if (guesses.includes(currentInput)) {
+    } else if (guesses.includes(currentInput)) {
         showNotice(`You have already chosen the letter: ${currentInput}`);
-    }
-    else {
+    } else {
         guesses.push(currentInput);
         if (finalWord.includes(currentInput)) {
             for (let index = 0; index < finalWord.length; index++) {
@@ -46,8 +45,7 @@ submitButton.addEventListener('click', (e) => {
                 submitButton.disabled = true;
                 showNotice(`You win! :)`, true);
             }
-        }
-        else {
+        } else {
             shakeHangman()
             gameOver = hangmanImage.incrementHangman();
             if (gameOver) {
